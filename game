@@ -99,6 +99,8 @@ class artist:
 
 
 	def fight(opponent):
+		global playerwin
+		playerwin = False
 		asapmobactive = False
 		slaughtergangactive = False
 		slimefamilyactive = False
@@ -218,6 +220,7 @@ HEALTH: {player.health}		HEALTH: 0
 						time.sleep(2)
 						player.health = 100
 						opponent.health = 100
+						playerwin = True
 						break
 					elif player.health <= 0:
 						print("\033[H\033[J")
@@ -231,6 +234,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 						time.sleep(2)
 						player.health = 100
 						opponent.health = 100
+						playerwin = False
 						break
 
 					print("")
@@ -294,36 +298,42 @@ HEALTH: 0		HEALTH: {opponent.health}
 							time.sleep(2)
 							opponent.attack = opponent.attack*2
 							opponent.lyrics = opponent.lyrics*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "OFFEND":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.defense = opponent.defense/2
 							opponent.lyrics = opponent.lyrics*3
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "QUICK SPEED":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.attack = opponent.attack*2
 							opponent.lyrics = opponent.lyrics*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "JACK OF ALL TRADES":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.defense = opponent.defense*2
 							opponent.lyrics = opponent.lyrics*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "THIEF":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.ability = player.ability
 							player.ability = "???"
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "DREADS":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.health = opponent.health*2
 							opponent.defense = opponent.defense*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "BABY VOICE":
 							print("")
 							print(f"{opponent.abilitydescription}")
@@ -331,22 +341,26 @@ HEALTH: 0		HEALTH: {opponent.health}
 							opponent.attack = opponent.attack*3
 							opponent.catchiness = opponent.catchiness*2
 							opponent.health = opponent.health/2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "PRODUCER TAG":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.catchiness = opponent.catchiness*2
 							opponent.attack = opponent.attack*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "SLIME FAMILY":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							slimefamilyactive2 = True
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "SLAUGHTER GANG":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							slaughtergangactive2 = True
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "LEAN":
 							if opponent.health < 70:
 								print("")
@@ -359,6 +373,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 								opponent.catchiness = opponent.catchiness*3
 								opponent.attack = opponent.attack*3
 								opponent.health = opponent.health - 70
+								opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "BLACK AND BLONDE X":
 							if opponent.health < 60:
 								print("")
@@ -370,12 +385,14 @@ HEALTH: 0		HEALTH: {opponent.health}
 								time.sleep(2)
 								opponent.attack = opponent.attack*3
 								opponent.health = opponent.health - 60
+								opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "SAMPLE":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.catchiness = opponent.catchiness*3
 							opponent.attack = opponent.attack*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "GO TO JAIL":
 							print("")
 							print(f"{opponent.abilitydescription}")
@@ -383,12 +400,14 @@ HEALTH: 0		HEALTH: {opponent.health}
 							opponent.attack = opponent.attack*3
 							opponent.catchiness = opponent.catchiness*2
 							opponent.health = opponent.health/2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "GLO GANG":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.health = opponent.health*2
 							opponent.defense = opponent.defense*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "HEARTBREAK":
 							print("")
 							print(f"{opponent.abilitydescription}")
@@ -396,23 +415,27 @@ HEALTH: 0		HEALTH: {opponent.health}
 							opponent.attack = opponent.attack*3
 							opponent.catchiness = opponent.catchiness*2
 							opponent.health = opponent.health/2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "ADAPT":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.defense = opponent.defense*2
 							opponent.health = opponent.health*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "HYPE":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.catchiness = opponent.catchiness*3
 							player.defense = player.defense/2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "ASAP MOB":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							asapmobactive2 = True
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "BAG":
 							if opponent.health < 70:
 								print("")
@@ -425,29 +448,34 @@ HEALTH: 0		HEALTH: {opponent.health}
 								opponent.attack = opponent.attack*3
 								opponent.defense = opponent.defense*2
 								opponent.health = opponent.health - 70
+								opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "RAGE":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.attack = opponent.attack*3
 							opponent.defense = opponent.defense/3
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "BEAT BY JEFF":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.attack = opponent.attack*2
 							opponent.lyrics = opponent.lyrics*3
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "THE RACE":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.catchiness = opponent.catchiness*2
 							opponent.attack = opponent.attack*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						if opponent.ability == "???":
 							print("")
 							print("HE HAS NO ABILITY!")
 						randomlyrics = random.randint(0, 100)
 						opponentdamage = opponent.attack*player.defense
+						opponent.abilityuse = opponent.abilityuse - 1
 						if randomlyrics >= lyricsdisplay2:
 							opponentdamage = opponentdamage * 1.5
 							impacthit = True
@@ -501,6 +529,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 							time.sleep(2)
 							player.health = 100
 							opponent.health = 100
+							playerwin = True
 							break
 						elif player.health <= 0:
 							print("\033[H\033[J")
@@ -514,6 +543,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 							player.health = 100
 							opponent.health = 100
 							time.sleep(2)
+							playerwin = False
 							break
 
 
@@ -575,6 +605,36 @@ HEALTH: 0		HEALTH: {opponent.health}
 							print(f"HE MISSED HIS ATTACK!")
 							time.sleep(2)
 
+						if opponent.health <= 0:
+							print("\033[H\033[J")
+							print(f"""{player.name.upper()}	    {opponent.name}
+    ATTACK: {player.attack}		ATTACK: {opponent.attack}
+    DEFENSE: {defensedisplay}		DEFENSE: {defensedisplay2}
+    HEALTH: {player.health}		HEALTH: 0
+    """)
+							time.sleep(2)
+							print("")
+							print(f"CONGRATULATIONS! {opponent.name} HAS BEEN DEFEATED!")
+							time.sleep(2)
+							player.health = 100
+							opponent.health = 100
+							playerwin = True
+							break
+						elif player.health <= 0:
+							print("\033[H\033[J")
+							print(f"""{player.name.upper()}	    {opponent.name}
+    ATTACK: {player.attack}		ATTACK: {opponent.attack}
+    DEFENSE: {defensedisplay}		DEFENSE: {defensedisplay2}
+    HEALTH: 0		HEALTH: {opponent.health}
+    """)
+							print("")
+							print("OH NO! YOU'VE BEEN DEFEATED!")
+							player.health = 100
+							opponent.health = 100
+							time.sleep(2)
+							playerwin = False
+							break
+
 					elif opponentspecialability is True:
 						if opponent.ability == "DISAPPEAR":
 							print("")
@@ -582,36 +642,42 @@ HEALTH: 0		HEALTH: {opponent.health}
 							time.sleep(2)
 							opponent.attack = opponent.attack*2
 							opponent.lyrics = opponent.lyrics*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "OFFEND":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.defense = opponent.defense/2
 							opponent.lyrics = opponent.lyrics*3
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "QUICK SPEED":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.attack = opponent.attack*2
 							opponent.lyrics = opponent.lyrics*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "JACK OF ALL TRADES":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.defense = opponent.defense*2
 							opponent.lyrics = opponent.lyrics*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "THIEF":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.ability = player.ability
 							player.ability = "???"
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "DREADS":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.health = opponent.health*2
 							opponent.defense = opponent.defense*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "BABY VOICE":
 							print("")
 							print(f"{opponent.abilitydescription}")
@@ -619,22 +685,26 @@ HEALTH: 0		HEALTH: {opponent.health}
 							opponent.attack = opponent.attack*3
 							opponent.catchiness = opponent.catchiness*2
 							opponent.health = opponent.health/2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "PRODUCER TAG":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.catchiness = opponent.catchiness*2
 							opponent.attack = opponent.attack*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "SLIME FAMILY":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							slimefamilyactive2 = True
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "SLAUGHTER GANG":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							slaughtergangactive2 = True
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "LEAN":
 							if opponent.health < 70:
 								print("")
@@ -647,6 +717,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 								opponent.catchiness = opponent.catchiness*3
 								opponent.attack = opponent.attack*3
 								opponent.health = opponent.health - 70
+								opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "BLACK AND BLONDE X":
 							if opponent.health < 60:
 								print("")
@@ -658,12 +729,14 @@ HEALTH: 0		HEALTH: {opponent.health}
 								time.sleep(2)
 								opponent.attack = opponent.attack*3
 								opponent.health = opponent.health - 60
+								opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "SAMPLE":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.catchiness = opponent.catchiness*3
 							opponent.attack = opponent.attack*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "GO TO JAIL":
 							print("")
 							print(f"{opponent.abilitydescription}")
@@ -671,12 +744,14 @@ HEALTH: 0		HEALTH: {opponent.health}
 							opponent.attack = opponent.attack*3
 							opponent.catchiness = opponent.catchiness*2
 							opponent.health = opponent.health/2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "GLO GANG":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.health = opponent.health*2
 							opponent.defense = opponent.defense*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "HEARTBREAK":
 							print("")
 							print(f"{opponent.abilitydescription}")
@@ -684,23 +759,27 @@ HEALTH: 0		HEALTH: {opponent.health}
 							opponent.attack = opponent.attack*3
 							opponent.catchiness = opponent.catchiness*2
 							opponent.health = opponent.health/2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "ADAPT":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.defense = opponent.defense*2
 							opponent.health = opponent.health*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "HYPE":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.catchiness = opponent.catchiness*3
 							player.defense = player.defense/2
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "ASAP MOB":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							asapmobactive2 = True
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "BAG":
 							if opponent.health < 70:
 								print("")
@@ -713,27 +792,32 @@ HEALTH: 0		HEALTH: {opponent.health}
 								opponent.attack = opponent.attack*3
 								opponent.defense = opponent.defense*2
 								opponent.health = opponent.health - 70
+								opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "RAGE":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.attack = opponent.attack*3
 							opponent.defense = opponent.defense/3
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "BEAT BY JEFF":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.attack = opponent.attack*2
 							opponent.lyrics = opponent.lyrics*3
+							opponent.abilityuse = opponent.abilityuse - 1
 						elif opponent.ability == "THE RACE":
 							print("")
 							print(f"{opponent.abilitydescription}")
 							time.sleep(2)
 							opponent.catchiness = opponent.catchiness*2
 							opponent.attack = opponent.attack*2
+							opponent.abilityuse = opponent.abilityuse - 1
 						if opponent.ability == "???":
 							print("")
 							print("HE HAS NO ABILITY!")
+							opponent.abilityuse = opponent.abilityuse - 1
 						randomlyrics = random.randint(0, 100)
 						opponentdamage = opponent.attack*player.defense
 						if randomlyrics >= lyricsdisplay2:
@@ -789,6 +873,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 							time.sleep(2)
 							player.health = 100
 							opponent.health = 100
+							playerwin = True
 							break
 						elif player.health <= 0:
 							print("\033[H\033[J")
@@ -802,6 +887,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 							player.health = 100
 							opponent.health = 100
 							time.sleep(2)
+							playerwin = False
 							break
 
 
@@ -864,6 +950,7 @@ HEALTH: {player.health}		HEALTH: 0
 					player.health = 100
 					opponent.health = 100
 					time.sleep(2)
+					playerwin = True
 					break
 				elif player.health <= 0:
 					print("\033[H\033[J")
@@ -877,6 +964,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 					player.health = 100
 					opponent.health = 100
 					time.sleep(2)
+					playerwin = False
 					break
 
 			if action == "SPECIAL ABILITY":
@@ -1051,7 +1139,7 @@ sheckwes = artist("SHECK WES", "NEW YORK", "MIXED MELODIC", 0.5, 0, "SHECK'S", 3
 
 asaprocky = artist("ASAP ROCKY", "NEW YORK", "PURE RAP", 0.3, 0.7, "ROCKY'S", 60, 8, "ASAP MOB", "ROCKY CALLS THE ASAP MOB TO DEAL AND EXTRA 30 DAMAGE TO OPPONENT", 2, "ITS NOT A PURSE, ITS A SATCHEL", "LORD PRETTY FLACKO JODYE", "AT LONG LAST ASAP", 8, 80, 0.7, 300)
 
-aboogie = artist("A BOOGIE", "NEW YORK", "MIXED RNB", 0.35, 0.6, "A BOOGIE'S", 30, 38, "BAG", "A BOOGIE GETS IN HIS BAG, TRIPLING ATTACK AND DOUBLING DEFENSE BUT DECREASES HEALTH BY 70", 1, "YOU BUGGIN SON THATS A DUB", "D.T.B. INTERLUDE", "ARTIST", 6, 60, 0.8, 200)
+tekashi = artist("TEKASHI", "NEW YORK", "SCREAMO RAP", 0.35, 0.6, "TEKASHI'S", 30, 38, "TR3YWAY", "TEKASHI YELLS 'TR3YWAY', TRIPLING ATTACK AND DOUBLING DEFENSE BUT DECREASES HEALTH BY 70", 1, "YOU KNOW THE VIBES", "GUMMO", "DUMMY BOY", 6, 60, 0.8, 200)
 
 travisscott = artist("TRAVIS SCOTT", "TEXAS", "MIXED MELODIC", 0.35, 0.5, "TRAV'S", 60, 1, "RAGE", "TRAVIS PERFORMS AT A CONCERT, TRIPLING ATTACK BUT DECREASING DEFENSE BY A THIRD", 1, "STRAIGHT UP!", "90210", "RODEO", 8, 60, 0.7, 300)
 
@@ -1092,10 +1180,10 @@ YOUR STATS:
 NAME: {player.name.upper()}
 LOCATION: {player.location}
 GENRE: {player.kind}
-CATCHINESS: {catchinessdisplay}
-LYRICS: {lyricsdisplay}
 ATTACK: {player.attack}
 DEFENSE: {defensedisplay}
+CATCHINESS: {catchinessdisplay}
+LYRICS: {lyricsdisplay}
 HEALTH: {player.health}
 FLOW: {player.flow}
 HIGHEST CHART SPOT: {player.chart}
@@ -1104,7 +1192,7 @@ ABILITY: {player.ability}
 	USES PER FIGHT: {player.abilityuse}
 NOTABLE SONG: {player.songs}
 NOTABLE PROJECT: {player.projects}
-RANKING: 2
+RANKING: {player.rating}
 """)
 
 
@@ -1132,32 +1220,44 @@ print("*TYPE IN ALL CAPS OKAY THANKS*")
 time.sleep(2)
 print("\033[H\033[J")
 print("???: HEY KID ")
-time.sleep(3)
+time.sleep(2)
+print("")
 print("???: I HEARD YOU WANNA MAKE MUSIC ")
 time.sleep(2)
+print("")
 print("???: WELL THE FIRST THING YOU NEED IS A STAGE NAME ")
 time.sleep(2)
+print("")
 player.name = input("???: WHAT DO YOU WANT YOUR STAGE NAME TO BE? ")
+print("")
 print("???: AH!")
 time.sleep(1)
+print("")
 print(f"???: {player.name.upper()}!")
 time.sleep(1)
+print("")
 print("???: FITTING")
 time.sleep(2)
+print("")
 print("""???: IF I'M GOING TO HELP YOU
 	I NEED TO KNOW WHERE YOU ARE FROM!""")
 time.sleep(1)
+print("")
 player.location = input("""???: WHAT CITY ARE YOU FROM?
     CHICAGO, TEXAS, L.A., NEW YORK, ATLANTA, OR FLORIDA? """)
 while player.location != "CHICAGO" and player.location != "TEXAS" and player.location != "L.A." and player.location != "NEW YORK" and player.location != "ATLANTA" and player.location != "FLORIDA":
+	print("")
 	player.location = input("""???: WHAT CITY ARE YOU FROM?
 	CHICAGO, TEXAS, L.A., NEW YORK, ATLANTA, OR FLORIDA? """)
 	time.sleep(1)
 time.sleep(1)
+print("")
 print(f"???: SO YOU'RE {player.name.upper()} FROM {player.location.upper()}!")
 time.sleep(1)
+print("")
 print("???: IT LOOKS LIKE WE'LL GET ALONG JUST FINE KID.")
 time.sleep(1)
+print("")
 print("""???: I'M YOUR MANAGER
 	CALL ME BIG SMOKE """)
 time.sleep(3)
@@ -1170,14 +1270,14 @@ print("""BIG SMOKE: WHAT KIND OF MUSIC YOU WANNA MAKE?
 	DRILL RAP?
 	PURE RNB?
 	MIXED RNB?""")
-time.sleep(7)
+time.sleep(4)
+print("")
 player.kind = input("BIG SMOKE: WELL WHICH ONE IS IT KID? ")
 while player.kind != "PURE MELODIC" and player.kind != "MIXED MELODIC" and player.kind != "PURE RAP" and player.kind != "MIXED RAP" and player.kind != "DRILL RAP" and player.kind != "PURE RNB" and player.kind != "MIXED RNB":
 	player.kind = input("BIG SMOKE: WELL WHICH ONE IS IT KID? ")
 	time.sleep(1)
-time.sleep(1)
-print("")
 time.sleep(2)
+print("")
 if player.kind == "PURE MELODIC":
 	print("+50 CATCHINESS")
 	player.catchiness = 0.25
@@ -1231,9 +1331,9 @@ elif player.kind == "DRILL RAP":
 	player.catchiness = 0.1
 	print("+30 LYRICS")
 	player.lyrics = 0.3
-	print("+30 ATTACK")
+	print("+40 ATTACK")
 	player.attack = 30
-	print("+40 DEFENSE")
+	print("+30 DEFENSE")
 	player.defense = 0.8
 	print("+100 HEALTH")
 	print("+4 RANKING")
@@ -1243,9 +1343,9 @@ elif player.kind == "PURE RNB":
 	player.catchiness = 0.2
 	print("+30 LYRICS")
 	player.lyrics = 0.3
-	print("+20 ATTACK")
+	print("+30 ATTACK")
 	player.attack = 20
-	print("+20 DEFENSE")
+	print("+40 DEFENSE")
 	player.defense = 0.9
 	print("+100 HEALTH")
 	print("+4 RANKING")
@@ -1264,16 +1364,20 @@ elif player.kind == "MIXED RNB":
 	time.sleep(2)
 
 displaystats()
-time.sleep(8)
+time.sleep(10)
 print("BIG SMOKE: I CAN TELL YOU'RE GONNA BE A STAR KID!")
 print("\033[H\033[J")
 time.sleep(2)
+print("")
 print("BIG SMOKE: IT'S TIME FOR YOU TO MAKE YOUR FIRST SONG")
 time.sleep(2)
-player.songs = input("BIG SMOKE: WHAT DO YOU WANT IT TO BE CALLED?")
+print("")
+player.songs = input("BIG SMOKE: WHAT DO YOU WANT IT TO BE CALLED? ")
 time.sleep(2)
+print("")
 print(f"BIG SMOKE: {player.songs}...")
 time.sleep(2)
+print("")
 print("BIG SMOKE: SOUNDS FIRE!")
 time.sleep(2)
 print(".")
@@ -1282,16 +1386,98 @@ print(".")
 time.sleep(1)
 print(".")
 time.sleep(1)
+print("")
 print("BIG SMOKE: ALL DONE. IT SOUNDS LIKE A HIT! CONGRATULATIONS KID")
 time.sleep(2)
-print("BIG SMOKE: IM GONNA GO AND TELL THE LABEL, BUT IN THE MEANTIME...")
+print("")
+print("BIG SMOKE: IM GONNA GO AND TELL THE LABEL, BUT FIRST...")
 time.sleep(2)
-print("BIG SMOKE: BE CAREFUL OUT THERE. ARTISTS IN YOUR AREA MIGHT GET JEALOUS")
+print("")
+print("BIG SMOKE: YOU NEED TO BE CAREFUL OUT THERE. ARTISTS IN YOUR AREA MIGHT GET JEALOUS")
 time.sleep(2)
+print("")
 print("BIG SMOKE: AND EVEN WANNA FIGHT YOU")
 time.sleep(2)
-print("BIG SMOKE: SO WATCH OUT FOR THAT")
+print("")
+print("BIG SMOKE: SO I'LL TEACH YOU HOW TO FIGHT")
 time.sleep(2)
+print("")
+print("BIG SMOKE: LETS TAKE A LOOK AT YOUR STATS AND WHAT THEY MEAN")
+time.sleep(2)
+displaystats()
+time.sleep(2)
+print("")
+print("BIG SMOKE: YOUR ATTACK STAT IS HOW MUCH DAMAGE YOU DEAL TO YOUR OPPONENT")
+time.sleep(2)
+print("\033[H\033[J")
+displaystats()
+print("")
+print("BIG SMOKE: YOUR DEFENSE STAT IS HOW MUCH YOUR OPPONENTS DAMAGE AGAINST YOU IS REDUCED BY")
+time.sleep(2)
+print("\033[H\033[J")
+displaystats()
+print("")
+print("BIG SMOKE: YOUR CATCHINESS STAT IS THE CHANCE OF YOUR OPPONENT'S ATTACK MISSING YOU")
+print("")
+time.sleep(2)
+print("\033[H\033[J")
+displaystats()
+print("")
+print("BIG SMOKE: YOUR LYRICS STAT IS THE CHANCE OF YOUR DAMAGE BEING MULTIPLIED BY 1.5 TIMES")
+time.sleep(2)
+print("\033[H\033[J")
+displaystats()
+print("")
+print("BIG SMOKE: YOUR HEALTH IS PRETTY SELF-EXPLANATORY")
+time.sleep(2)
+print("\033[H\033[J")
+displaystats()
+print("")
+print("BIG SMOKE: YOU CAN UNLOCK FLOWS AS YOU DEFEAT OTHERS, GIVING YOU STAT BOOSTS")
+time.sleep(2)
+print("\033[H\033[J")
+displaystats()
+print("")
+print("BIG SMOKE: THE MORE POPULAR YOU ARE, THE HIGHER SPOT YOU HAVE ON THE BILLBOARD CHARTS")
+time.sleep(2)
+print("\033[H\033[J")
+displaystats()
+print("")
+print("BIG SMOKE: SPEAKING OF ABILITIES...")
+time.sleep(2)
+print("")
+print("BIG SMOKE: ITS ABOUT TIME YOU PICK A SPECIAL ABILITY")
+time.sleep(2)
+print("")
+print("BIG SMOKE: YOU HAVE SOME OPTIONS")
+time.sleep(2)
+print("")
+print(f"""BIG SMOKE: YOU CAN PICK EITHER
+PRODUCER TAG
+    YOU PRODUCE A HIT BEAT, DOUBLING CATCHINESS, AND ATTACK
+BLOOD GANG
+    YOU GO BACK TO YOUR HOOD AND ROLL WITH YOUR GANG, DOUBLING LYRICS AND DEFENSE
+SAMPLE
+    YOU SAMPLE A CARTOON, TRIPLING CATCHINESS AND DOUBLING ATTACK
+HEARTBREAK
+    YOU GET YOUR HEART BROKEN, TRIPLING ATTACK AND DOUBLING CATCHINESS BUT DECREASING HEALTH BY HALF
+HYPE
+    YOU PERFORM {player.songs}, TRIPLING CATCHINESS AND CUTTING OPPONENT'S DEFENSE IN HALF
+BEAT BY JEFF
+    YOU RAP ON A BEAT BY JEFF, """)
+time.sleep(4)
+player.ability = input("BIG SMOKE: SO WHICH ONE DO YOU WANT?")
+while player.ability != "PRODUCER TAG" and player.ability != "BLOOD GANG" and player.ability != "SAMPLE" and player.ability != "HEARTBREAK" and player.ability != "HYPE" and player.ability != "BEAT BY JEFF":
+    time.sleep(2)
+    player.ability = input("BIG SMOKE: SO WHICH ONE DO YOU WANT?")
+    print("")
+print("")
+print(f"BIG SMOKE: {player.ability}...")
+time.sleep(2)
+print("")
+print("BIG SMOKE: THAT'S A FINE ABILITY.")
+time.sleep(2)
+print("")
 print("*YOU WALK OUTSIDE*")
 time.sleep(2)
 print("\033[H\033[J")
@@ -1299,52 +1485,142 @@ time.sleep(2)
 if player.location == "ATLANTA":
     print("!!!: HEY!")
     time.sleep(2)
+    print("")
     print(f"!!!: YOU'RE THAT {player.name.upper()} KID RIGHT!")
     time.sleep(2)
+    print("")
     print("!!!: YOU GOT A LOTTA NERVE COMING TO MY CITY AND MAKING MUSIC")
     time.sleep(2)
+    print("")
     print("!!!: THE NAME'S PIERRE BOURNE KID, LET'S SEE WHAT YOU GOT")
     time.sleep(2)
+    print("")
     artist.fight(pierrebourne)
-if player.location == "FLORIDA":
+    if playerwin is True:
+        print("+20 CATCHINESS")
+        player.catchiness = player.catchiness + 0.20
+        print("+20 LYRICS")
+        player.lyrics = player.lyrics + 0.4
+        print("+20 ATTACK")
+        player.attack = player.attack + 20
+        print("+10 DEFENSE")
+        player.defense = player.defense -0.05
+        print("+100 HEALTH")
+        player.health = player.health + 100
+        print("+2 RANKING")
+        player.rating = 6
+        time.sleep(2)
+elif player.location == "FLORIDA":
     print("!!!: HEY!")
     time.sleep(2)
+    print("")
     print(f"!!!: YOU'RE THAT {player.name.upper()} KID RIGHT!")
     time.sleep(2)
+    print("")
     print("!!!: YOU GOT A LOTTA NERVE COMING TO MY CITY AND MAKING MUSIC")
     time.sleep(2)
+    print("")
     print("!!!: THE NAME'S SKI MASK THE SLUMP GOD KID, LET'S SEE WHAT YOU GOT")
     time.sleep(2)
+    print("")
     artist.fight(skimask)
-if player.location == "NEW YORK":
+    if playerwin is True:
+        print("+20 CATCHINESS")
+        player.catchiness = player.catchiness + 0.20
+        print("+20 LYRICS")
+        player.lyrics = player.lyrics + 0.4
+        print("+20 ATTACK")
+        player.attack = player.attack + 20
+        print("+10 DEFENSE")
+        player.defense = player.defense -0.05
+        print("+100 HEALTH")
+        player.health = player.health + 100
+        print("+2 RANKING")
+        player.rating = 6
+        time.sleep(2)
+elif player.location == "NEW YORK":
     print("!!!: HEY!")
     time.sleep(2)
+    print("")
     print(f"!!!: YOU'RE THAT {player.name.upper()} KID RIGHT!")
     time.sleep(2)
+    print("")
     print("!!!: YOU GOT A LOTTA NERVE COMING TO MY CITY AND MAKING MUSIC")
     time.sleep(2)
+    print("")
     print("!!!: THE NAME'S SHECK WES KID, LET'S SEE WHAT YOU GOT")
     time.sleep(2)
+    print("")
     artist.fight(sheckwes)
-if player.location == "CHICAGO":
+    if playerwin is True:
+        print("+20 CATCHINESS")
+        player.catchiness = player.catchiness + 0.20
+        print("+20 LYRICS")
+        player.lyrics = player.lyrics + 0.4
+        print("+20 ATTACK")
+        player.attack = player.attack + 20
+        print("+10 DEFENSE")
+        player.defense = player.defense -0.05
+        print("+100 HEALTH")
+        player.health = player.health + 100
+        print("+2 RANKING")
+        player.rating = 6
+        time.sleep(2)
+elif player.location == "CHICAGO":
     print("!!!: HEY!")
     time.sleep(2)
+    print("")
     print(f"!!!: YOU'RE THAT {player.name.upper()} KID RIGHT!")
     time.sleep(2)
+    print("")
     print("!!!: YOU GOT A LOTTA NERVE COMING TO MY CITY AND MAKING MUSIC")
     time.sleep(2)
+    print("")
     print("!!!: THE NAME'S JUICE WRLD KID, LET'S SEE WHAT YOU GOT")
     time.sleep(2)
+    print("")
     artist.fight(juicewrld)
-if player.location == "L.A.":
+    if playerwin is True:
+        print("+20 CATCHINESS")
+        player.catchiness = player.catchiness + 0.20
+        print("+20 LYRICS")
+        player.lyrics = player.lyrics + 0.4
+        print("+20 ATTACK")
+        player.attack = player.attack + 20
+        print("+10 DEFENSE")
+        player.defense = player.defense -0.05
+        print("+100 HEALTH")
+        player.health = player.health + 100
+        print("+2 RANKING")
+        player.rating = 6
+        time.sleep(2)
+elif player.location == "L.A.":
     print("!!!: HEY!")
     time.sleep(2)
+    print("")
     print(f"!!!: YOU'RE THAT {player.name.upper()} KID RIGHT!")
     time.sleep(2)
+    print("")
     print("!!!: YOU GOT A LOTTA NERVE COMING TO MY CITY AND MAKING MUSIC")
     time.sleep(2)
+    print("")
     print("!!!: THE NAME'S YG KID, LET'S SEE WHAT YOU GOT")
     time.sleep(2)
+    print("")
     artist.fight(yg)
+    if playerwin is True:
+        print("+20 CATCHINESS")
+        player.catchiness = player.catchiness + 0.20
+        print("+20 LYRICS")
+        player.lyrics = player.lyrics + 0.4
+        print("+20 ATTACK")
+        player.attack = player.attack + 20
+        print("+10 DEFENSE")
+        player.defense = player.defense -0.05
+        print("+100 HEALTH")
+        player.health = player.health + 100
+        print("+2 RANKING")
+        player.rating = 6
+        time.sleep(2)
 
 
