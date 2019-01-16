@@ -941,9 +941,10 @@ HEALTH: 0		HEALTH: {opponent.health}
 
 			if action == "SPECIAL ABILITY":
 				time.sleep(2)
-				while player.abilityuse == 0:
+				if player.abilityuse == 0:
 					print("")
 					print("YOU USED UP YOUR SPECIAL MOVE!")
+
 				if player.abilityuse > 0:
 					if player.ability == "DISAPPEAR":
 						print("")
@@ -1281,13 +1282,21 @@ print("""???: I'M YOUR MANAGER
 time.sleep(3)
 print("\033[H\033[J")
 print("""BIG SMOKE: WHAT KIND OF MUSIC YOU WANNA MAKE?
+
 	PURE MELODIC?
+
 	MIXED MELODIC?
+
 	PURE RAP?
+
 	MIXED RAP?
+
 	DRILL RAP?
+
 	PURE RNB?
-	MIXED RNB?""")
+
+	MIXED RNB?
+	""")
 time.sleep(4)
 print("")
 player.kind = input("BIG SMOKE: WELL WHICH ONE IS IT KID? ")
@@ -1299,89 +1308,129 @@ print("")
 if player.kind == "PURE MELODIC":
 	print("+50 CATCHINESS")
 	player.catchiness = 0.25
+	time.sleep(0.5)
 	print("+10 LYRICS")
 	player.lyrics = 0.1
+	time.sleep(0.5)
 	print("+30 ATTACK")
 	player.attack = 30
+	time.sleep(0.5)
 	print("+30 DEFENSE")
 	player.defense = 0.85
+	time.sleep(0.5)
 	print("+100 HEALTH")
+	time.sleep(0.5)
 	print("+4 RANKING")
 	time.sleep(2)
 elif player.kind == "MIXED MELODIC":
 	print("+30 CATCHINESS")
 	player.catchiness = 0.15
+	time.sleep(0.5)
 	print("+30 LYRICS")
 	player.lyrics = 0.3
+	time.sleep(0.5)
 	print("+30 ATTACK")
 	player.attack = 30
+	time.sleep(0.5)
 	print("+30 DEFENSE")
 	player.defense = 0.85
+	time.sleep(0.5)
 	print("+100 HEALTH")
+	time.sleep(0.5)
 	print("+4 RANKING")
 	time.sleep(2)
 elif player.kind == "PURE RAP":
 	print("+10 CATCHINESS")
 	player.catchiness = 0.05
+	time.sleep(0.5)
 	print("+40 LYRICS")
 	player.lyrics = 0.4
+	time.sleep(0.5)
 	print("+30 ATTACK")
 	player.attack = 30
+	time.sleep(0.5)
 	print("+30 DEFENSE")
 	player.defense = 0.85
+	time.sleep(0.5)
 	print("+100 HEALTH")
+	time.sleep(0.5)
 	print("+4 RANKING")
 	time.sleep(2)
 elif player.kind == "MIXED RAP":
 	print("+30 CATCHINESS")
 	player.catchiness = 0.15
+	time.sleep(0.5)
 	print("+30 LYRICS")
 	player.lyrics = 0.3
+	time.sleep(0.5)
 	print("+30 ATTACK")
 	player.attack = 30
+	time.sleep(0.5)
 	print("+30 DEFENSE")
 	player.defense = 0.85
+	time.sleep(0.5)
 	print("+100 HEALTH")
+	time.sleep(0.5)
 	print("+4 RANKING")
 	time.sleep(2)
 elif player.kind == "DRILL RAP":
 	print("+20 CATCHINESS")
 	player.catchiness = 0.1
+	time.sleep(0.5)
 	print("+30 LYRICS")
 	player.lyrics = 0.3
+	time.sleep(0.5)
 	print("+40 ATTACK")
 	player.attack = 30
+	time.sleep(0.5)
 	print("+30 DEFENSE")
 	player.defense = 0.8
+	time.sleep(0.5)
 	print("+100 HEALTH")
+	time.sleep(0.5)
 	print("+4 RANKING")
 	time.sleep(2)
 elif player.kind == "PURE RNB":
 	print("+40 CATCHINESS")
 	player.catchiness = 0.2
+	time.sleep(0.5)
 	print("+30 LYRICS")
 	player.lyrics = 0.3
+	time.sleep(0.5)
 	print("+30 ATTACK")
 	player.attack = 20
+	time.sleep(0.5)
 	print("+40 DEFENSE")
 	player.defense = 0.9
+	time.sleep(0.5)
 	print("+100 HEALTH")
+	time.sleep(0.5)
 	print("+4 RANKING")
 	time.sleep(2)
 elif player.kind == "MIXED RNB":
 	print("+30 CATCHINESS")
 	player.catchiness = 0.15
+	time.sleep(0.5)
 	print("+30 LYRICS")
 	player.lyrics = 0.3
+	time.sleep(0.5)
 	print("+30 ATTACK")
 	player.attack = 30
+	time.sleep(0.5)
 	print("+30 DEFENSE")
 	player.defense = 0.85
+	time.sleep(0.5)
 	print("+100 HEALTH")
+	time.sleep(0.5)
 	print("+4 RANKING")
 	time.sleep(2)
 
-displaystats()
+print("\033[H\033[J")
+time.sleep(2)
+artist.listinfo(player)
+print("")
+time.sleep(2)
+input("PRESS ENTER WHEN DONE")
 time.sleep(10)
 print("BIG SMOKE: I CAN TELL YOU'RE GONNA BE A STAR KID!")
 print("\033[H\033[J")
@@ -1453,7 +1502,7 @@ print("\033[H\033[J")
 displaystats()
 print("")
 print("BIG SMOKE: YOU CAN UNLOCK FLOWS AS YOU DEFEAT OTHERS, GIVING YOU STAT BOOSTS")
-time.sleep(2)
+time.sleep(4)
 print("\033[H\033[J")
 displaystats()
 print("")
@@ -1475,17 +1524,23 @@ print("")
 print(f"""BIG SMOKE: YOU CAN PICK EITHER
 
 PRODUCER TAG
-    YOU PRODUCE A HIT BEAT, DOUBLING CATCHINESS, AND ATTACK
+YOU PRODUCE A HIT BEAT, DOUBLING CATCHINESS, AND ATTACK
+
 BLOOD GANG
-    YOU GO BACK TO YOUR HOOD AND ROLL WITH YOUR GANG, DOUBLING LYRICS AND DEFENSE
+YOU GO BACK TO YOUR HOOD AND ROLL WITH YOUR GANG, DOUBLING LYRICS AND DEFENSE
+
 SAMPLE
-    YOU SAMPLE A CARTOON, TRIPLING CATCHINESS AND DOUBLING ATTACK
+YOU SAMPLE A CARTOON, TRIPLING CATCHINESS AND DOUBLING ATTACK
+
 HEARTBREAK
-    YOU GET YOUR HEART BROKEN, TRIPLING ATTACK AND DOUBLING CATCHINESS BUT DECREASING HEALTH BY HALF
+YOU GET YOUR HEART BROKEN, TRIPLING ATTACK AND DOUBLING CATCHINESS BUT DECREASING HEALTH BY HALF
+
 HYPE
-    YOU PERFORM {player.songs}, TRIPLING CATCHINESS AND CUTTING OPPONENT'S DEFENSE IN HALF
+YOU PERFORM {player.songs}, TRIPLING CATCHINESS AND CUTTING OPPONENT'S DEFENSE IN HALF
+
 BEAT BY JEFF
-    YOU RAP ON A BEAT BY JEFF, DOUBLING ATTACK AND TRIPLING LYRICS
+YOU RAP ON A BEAT BY JEFF, DOUBLING ATTACK AND TRIPLING LYRICS
+
     """)
 time.sleep(4)
 player.ability = input("BIG SMOKE: SO WHICH ONE DO YOU WANT? ")
@@ -1521,7 +1576,8 @@ if player.location == "ATLANTA":
     player.health = 100
     print("\033[H\033[J")
     while playerwin is False:
-        print("PIERRE: YOU'RE NOT GONNA GET OFF THAT EASILY."
+        print("PIERRE: YOU'RE NOT GONNA GET OFF THAT EASILY.")
+        time.sleep(2)
         artist.fight(pierrebourne)
         player.health = 100
         print("\033[H\033[J")
@@ -1541,15 +1597,16 @@ if player.location == "ATLANTA":
         print("+100 HEALTH")
         player.health = player.health + 100
         time.sleep(0.5)
+        print("+40 CATCHINESS")
+        player.catchiness = player.catchiness + 0.40
+        time.sleep(0.5)
         print("+2 RANKING")
         player.rating = 6
-        time.sleep(4)
+        time.sleep(2)
         print("YOU'VE UNLOCKED PIERRE'S FLOW!")
         time.sleep(2)
         player.flow = "PIERRE'S"
         print("\033[H\033[J")
-        print("+40 CATCHINESS")
-        player.catchiness = player.catchiness + 0.40
 elif player.location == "FLORIDA":
     print("!!!: HEY!")
     time.sleep(2)
@@ -1567,7 +1624,8 @@ elif player.location == "FLORIDA":
     player.health = 100
     print("\033[H\033[J")
     while playerwin is False:
-        print("SKI: YOU'RE NOT GONNA GET OFF THAT EASILY."
+        print("SKI: YOU'RE NOT GONNA GET OFF THAT EASILY.")
+        time.sleep(2)
         artist.fight(skimask)
         player.health = 100
         print("\033[H\033[J")
@@ -1587,17 +1645,19 @@ elif player.location == "FLORIDA":
         print("+100 HEALTH")
         player.health = player.health + 100
         time.sleep(0.5)
+        print("+20 LYRICS")
+        player.lyrics = player.lyrics + 0.40
+        time.sleep(0.5)
+        print("+20 CATCHINESS")
+        player.catchiness = player.catchiness + 0.20
+        time.sleep(0.5)
         print("+2 RANKING")
         player.rating = 6
-        time.sleep(4)
+        time.sleep(2)
         print("YOU'VE UNLOCKED SKI'S FLOW!")
         time.sleep(2)
         player.flow = "SKI'S"
         print("\033[H\033[J")
-        print("+20 LYRICS")
-        player.lyrics = player.lyrics + 0.40
-        print("+20 CATCHINESS")
-        player.catchiness = player.catchiness + 0.20
 elif player.location == "NEW YORK":
     print("!!!: HEY!")
     time.sleep(2)
@@ -1615,7 +1675,8 @@ elif player.location == "NEW YORK":
     player.health = 100
     print("\033[H\033[J")
     while playerwin is False:
-        print("SHECK: YOU'RE NOT GONNA GET OFF THAT EASILY."
+        print("SHECK: YOU'RE NOT GONNA GET OFF THAT EASILY.")
+        time.sleep(2)
         artist.fight(sheckwes)
         player.health = 100
         print("\033[H\033[J")
@@ -1635,15 +1696,16 @@ elif player.location == "NEW YORK":
         print("+100 HEALTH")
         player.health = player.health + 100
         time.sleep(0.5)
+        print("+30 CATCHINESS")
+        player.catchiness = player.catchiness + 0.30
+        time.sleep(0.5)
         print("+2 RANKING")
         player.rating = 6
-        time.sleep(4)
+        time.sleep(2)
         print("YOU'VE UNLOCKED SHECK'S FLOW!")
         time.sleep(2)
         player.flow = "SHECK'S"
         print("\033[H\033[J")
-        print("+30 CATCHINESS")
-        player.catchiness = player.catchiness + 0.30
 elif player.location == "CHICAGO":
     print("!!!: HEY!")
     time.sleep(2)
@@ -1661,7 +1723,8 @@ elif player.location == "CHICAGO":
     player.health = 100
     print("\033[H\033[J")
     while playerwin is False:
-        print("JUICE: YOU'RE NOT GONNA GET OFF THAT EASILY."
+        print("JUICE: YOU'RE NOT GONNA GET OFF THAT EASILY.")
+        time.sleep(2)
         artist.fight(juicewrld)
         player.health = 100
         print("\033[H\033[J")
@@ -1683,16 +1746,17 @@ elif player.location == "CHICAGO":
         print("+100 HEALTH")
         player.health = player.health + 100
         time.sleep(0.5)
+        print("+30 CATCHINESS")
+        player.catchiness = player.catchiness + 0.30
+        time.sleep(0.5)
         print("+2 RANKING")
         player.rating = 6
         time.sleep(0.5)
-        time.sleep(4)
+        time.sleep(2)
         print("YOU'VE UNLOCKED JUICE'S FLOW!")
         time.sleep(2)
         player.flow = "JUICE'S"
         print("\033[H\033[J")
-        print("+30 CATCHINESS")
-        player.catchiness = player.catchiness + 0.30
 elif player.location == "L.A.":
     print("!!!: HEY!")
     time.sleep(2)
@@ -1710,7 +1774,8 @@ elif player.location == "L.A.":
     player.health = 100
     print("\033[H\033[J")
     while playerwin is False:
-        print("YG: YOU'RE NOT GONNA GET OFF THAT EASILY."
+        print("YG: YOU'RE NOT GONNA GET OFF THAT EASILY.")
+        time.sleep(2)
         artist.fight(yg)
         player.health = 100
         print("\033[H\033[J")
@@ -1732,17 +1797,19 @@ elif player.location == "L.A.":
         print("+100 HEALTH")
         player.health = player.health + 100
         time.sleep(0.5)
+        print("+10 LYRICS")
+        player.lyrics = player.lyrics + 0.2
+        time.sleep(0.5)
+        print("+20 CATCHINESS")
+        player.catchiness = player.catchiness + 0.20
+        time.sleep(0.5)
         print("+2 RANKING")
         player.rating = 6
-        time.sleep(4)
+        time.sleep(2)
         print("YOU'VE UNLOCKED YG'S FLOW!")
         time.sleep(2)
         player.flow = "YG'S"
         print("\033[H\033[J")
-        print("+10 LYRICS")
-        player.lyrics = player.lyrics + 0.2
-        print("+10 CATCHINESS")
-        player.catchiness = player.catchiness + 0.10
 elif player.location == "TEXAS":
     print("!!!: HEY!")
     time.sleep(2)
@@ -1760,7 +1827,8 @@ elif player.location == "TEXAS":
     player.health = 100
     print("\033[H\033[J")
     while playerwin is False:
-        print("SPLURGE: YOU'RE NOT GONNA GET OFF THAT EASILY."
+        print("SPLURGE: YOU'RE NOT GONNA GET OFF THAT EASILY.")
+        time.sleep(2)
         artist.fight(splurge)
         player.health = 100
         print("\033[H\033[J")
@@ -1782,16 +1850,19 @@ elif player.location == "TEXAS":
         print("+100 HEALTH")
         player.health = player.health + 100
         time.sleep(0.5)
+        print("+10 LYRICS")
+        player.lyrics = player.lyrics + 0.2
+        time.sleep(0.5)
+        print("+20 CATCHINESS")
+        player.catchiness = player.catchiness + 0.20
+        time.sleep(0.5)
         print("+2 RANKING")
         player.rating = 6
-        time.sleep(4)
+        time.sleep(2)
         print("YOU'VE UNLOCKED SPLURGE'S FLOW!")
         time.sleep(2)
         player.flow = "SPLURGE'S"
         print("\033[H\033[J")
-        print("+10 LYRICS")
-        player.lyrics = player.lyrics + 0.2
-        print("+20 CATCHINESS")
-        player.catchiness = player.catchiness + 0.20
+
 
 
