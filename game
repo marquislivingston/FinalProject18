@@ -2515,16 +2515,16 @@ YOU REVERT BACK TO YOUR OLD SELF, TRIPLING ATTACK BUT DECREASING HEALTH BY 150
 ADAPT
 YOU PUSH THE GENRE FORWARD, TRIPLING HEALTH
 
-HYPE
-YOU PERFORM {player.songs}, TRIPLING CATCHINESS AND CUTTING OPPONENT'S DEFENSE IN HALF
+ASAP MOB
+YOU CALL THE ASAP MOB TO DEAL AN EXTRA 60 DAMAGE TO OPPONENT
 
-BEAT BY JEFF
-YOU RAP ON A BEAT BY JEFF, DOUBLING ATTACK AND TRIPLING LYRICS
+RAGE
+YOU PERFORM AT A CONCERT, TRIPLING ATTACK BUT DECREASING HEALTH BY HALF
 
     """)
 time.sleep(4)
 player.ability = input("BIG SMOKE: SO WHICH ONE DO YOU WANT? ")
-while player.ability != "PRODUCER TAG" and player.ability != "BLOOD GANG" and player.ability != "SAMPLE" and player.ability != "HEARTBREAK" and player.ability != "HYPE" and player.ability != "BEAT BY JEFF":
+while player.ability != "QUICK SPEED" and player.ability != "BABY VOICE" and player.ability != "BLACK AND BLONDE" and player.ability != "ADAPT" and player.ability != "ASAP MOB" and player.ability != "RAGE":
     time.sleep(2)
     player.ability = input("BIG SMOKE: SO WHICH ONE DO YOU WANT? ")
     print("")
