@@ -182,7 +182,7 @@ SPECIAL ABILITY
 					else:
 						miss = False
 					if asapmobactive is True:
-						playerdamage = playerdamage + 30
+						playerdamage = playerdamage + 60
 					if slaughtergangactive is True:
 						playerdamage = playerdamage + 20
 					if slimefamilyactive is True:
@@ -1061,7 +1061,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 						player.abilityuse = player.abilityuse - 1
 					elif player.ability == "ASAP MOB":
 						print("")
-						print("YOU CALL THE ASAP MOB TO DEAL AN EXTRA 30 DAMAGE TO OPPONENT")
+						print("YOU CALL THE ASAP MOB TO DEAL AN EXTRA 60 DAMAGE TO OPPONENT")
 						time.sleep(2)
 						asapmobactive = True
 						player.abilityuse = player.abilityuse - 1
@@ -1128,7 +1128,7 @@ kendricklamar = artist("KENDRICK LAMAR", "L.A.", "PURE RAP", 0.35, 0.9, "KENDRIC
 
 yg = artist("Y.G.", "L.A.", "PURE RAP", 0.35, 0.8, "YG'S", 70, 1, "BLOOD GANG", "YG GOES BACK TO HIS HOOD AND ROLLS WITH HIS GANG, DOUBLING LYRICS AND HEALTH", 1,"SUUWOOP!", "BIG BANK", "STILL BRAZY", 5, 40, 0.7, 100)
 
-drake = artist("DRAKE", "TORONTO", "MIXED RNB", 0.4, 0.3, "WHOEVER IS HOT RIGHT NOW'S", 100, 1, "THIEF", "DRAKE STEALS OPPONENT'S FLOW, TAKING AWAY THEIR ABILITY AND GIVING IT TO HIMSELF", 1, "YEAH.", "MARVINS ROOM", "TAKE CARE", 9, 70, 0.5, 300)
+drake = artist("DRAKE", "TORONTO", "MIXED RNB", 0.5, 0.5, "WHOEVER IS HOT RIGHT NOW'S", 100, 1, "THIEF", "DRAKE STEALS OPPONENT'S FLOW, TAKING AWAY THEIR ABILITY AND GIVING IT TO HIMSELF", 1, "YEAH.", "MARVINS ROOM", "TAKE CARE", 10, 100, 0.5, 400)
 
 playboicarti = artist("PLAYBOI CARTI", "ATLANTA", "PURE MELODIC", 0.5, 0.2, "CARTI'S", 35, 29, "BABY VOICE", "CARTI CHANGES HIS VOICE, TRIPLING ATTACK AND DOUBLING CATCHINESS BUT CUTTING HEALTH IN HALF", 1, "*_SLATT*+_", "FLATBED FREESTYLE", "DIE LIT", 8, 70, 0.8, 300)
 
@@ -1554,6 +1554,11 @@ print("\033[H\033[J")
 time.sleep(2)
 
 if player.location == "ATLANTA":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -1569,7 +1574,11 @@ if player.location == "ATLANTA":
     print(f"PIERRE: {pierrebourne.phrase}")
     time.sleep(2)
     artist.fight(pierrebourne)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 100
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     pierrebourne.health = 100
     player.abilityuse = 1
     pierrebourne.abilityuse = 1
@@ -1582,7 +1591,11 @@ if player.location == "ATLANTA":
         print("PIERRE: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(pierrebourne)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 100
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         pierrebourne.health = 100
         player.abilityuse = 1
         pierrebourne.abilityuse = 1
@@ -1619,6 +1632,11 @@ if player.location == "ATLANTA":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "FLORIDA":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -1634,7 +1652,11 @@ elif player.location == "FLORIDA":
     print(f"SKI: {skimask.phrase}")
     time.sleep(2)
     artist.fight(skimask)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 100
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     skimask.health = 100
     player.abilityuse = 1
     skimask.abilityuse = 1
@@ -1647,7 +1669,11 @@ elif player.location == "FLORIDA":
         print("SKI: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(skimask)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 100
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         skimask.health = 100
         player.abilityuse = 1
         skimask.abilityuse = 1
@@ -1687,6 +1713,11 @@ elif player.location == "FLORIDA":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "NEW YORK":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -1702,7 +1733,11 @@ elif player.location == "NEW YORK":
     print(f"SHECK: {sheckwes.phrase}")
     time.sleep(2)
     artist.fight(sheckwes)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 100
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     sheckwes.health = 100
     player.abilityuse = 1
     sheckwes.abilityuse = 1
@@ -1715,7 +1750,11 @@ elif player.location == "NEW YORK":
         print("SHECK: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(sheckwes)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 100
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         sheckwes.health = 100
         player.abilityuse = 1
         sheckwes.abilityuse = 1
@@ -1752,6 +1791,11 @@ elif player.location == "NEW YORK":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "CHICAGO":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -1767,7 +1811,11 @@ elif player.location == "CHICAGO":
     time.sleep(2)
     print("")
     artist.fight(juicewrld)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 100
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     juicewrld.health = 100
     player.abilityuse = 1
     juicewrld.abilityuse = 1
@@ -1780,7 +1828,11 @@ elif player.location == "CHICAGO":
         print("JUICE: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(juicewrld)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 100
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         juicewrld.health = 100
         player.abilityuse = 1
         juicewrld.abilityuse = 1
@@ -1820,6 +1872,11 @@ elif player.location == "CHICAGO":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "L.A.":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -1835,7 +1892,11 @@ elif player.location == "L.A.":
     print(f"YG: {yg.phrase}")
     time.sleep(2)
     artist.fight(yg)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 100
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     yg.health = 100
     player.abilityuse = 1
     yg.abilityuse = 1
@@ -1848,7 +1909,11 @@ elif player.location == "L.A.":
         print("YG: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(yg)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 100
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         yg.health = 100
         player.abilityuse = 1
         yg.abilityuse = 1
@@ -1890,6 +1955,11 @@ elif player.location == "L.A.":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "TEXAS":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -1905,7 +1975,11 @@ elif player.location == "TEXAS":
     print(f"SPLURGE: {splurge.phrase}")
     time.sleep(2)
     artist.fight(splurge)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 100
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     splurge.health = 200
     player.abilityuse = 1
     splurge.abilityuse = 1
@@ -1918,7 +1992,11 @@ elif player.location == "TEXAS":
         print("SPLURGE: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(splurge)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 100
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         splurge.health = 200
         player.abilityuse = 1
         splurge.abilityuse = 1
@@ -2062,6 +2140,11 @@ print("\033[H\033[J")
 time.sleep(2)
 
 if player.location == "ATLANTA":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2080,7 +2163,11 @@ if player.location == "ATLANTA":
     print(f"FUTURE: {future.phrase}")
     time.sleep(2)
     artist.fight(future)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 200
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     future.health = 200
     player.abilityuse = 1
     future.abilityuse = 1
@@ -2093,7 +2180,11 @@ if player.location == "ATLANTA":
         print("FUTURE: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(future)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 200
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         future.health = 200
         player.abilityuse = 1
         future.abilityuse = 1
@@ -2130,6 +2221,11 @@ if player.location == "ATLANTA":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "FLORIDA":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2148,7 +2244,11 @@ elif player.location == "FLORIDA":
     print(f"KODAK: {kodakblack.phrase}")
     time.sleep(2)
     artist.fight(kodakblack)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 200
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     kodakblack.health = 200
     player.abilityuse = 1
     kodakblack.abilityuse = 1
@@ -2161,7 +2261,11 @@ elif player.location == "FLORIDA":
         print("KODAK: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(kodakblack)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 200
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         kodakblack.health = 200
         player.abilityuse = 1
         kodakblack.abilityuse = 1
@@ -2198,6 +2302,11 @@ elif player.location == "FLORIDA":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "NEW YORK":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2216,7 +2325,11 @@ elif player.location == "NEW YORK":
     print(f"TEKASHI: {tekashi.phrase}")
     time.sleep(2)
     artist.fight(tekashi)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 200
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     tekashi.health = 200
     player.abilityuse = 1
     tekashi.abilityuse = 1
@@ -2229,7 +2342,11 @@ elif player.location == "NEW YORK":
         print("TEKASHI: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(tekashi)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 200
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         tekashi.health = 200
         player.abilityuse = 1
         tekashi.abilityuse = 1
@@ -2266,6 +2383,11 @@ elif player.location == "NEW YORK":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "CHICAGO":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2284,7 +2406,11 @@ elif player.location == "CHICAGO":
     print(f"CHIEF KEEF: {chiefkeef.phrase}")
     time.sleep(2)
     artist.fight(chiefkeef)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 200
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     chiefkeef.health = 200
     player.abilityuse = 1
     chiefkeef.abilityuse = 1
@@ -2297,7 +2423,11 @@ elif player.location == "CHICAGO":
         print("CHIEF KEEF: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(chiefkeef)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 200
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         chiefkeef.health = 200
         player.abilityuse = 1
         chiefkeef.abilityuse = 1
@@ -2334,6 +2464,11 @@ elif player.location == "CHICAGO":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "L.A.":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2352,7 +2487,11 @@ elif player.location == "L.A.":
     print(f"FRANK OCEAN: {frankocean.phrase}")
     time.sleep(2)
     artist.fight(frankocean)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 200
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     frankocean.health = 200
     player.abilityuse = 1
     frankocean.abilityuse = 1
@@ -2365,7 +2504,11 @@ elif player.location == "L.A.":
         print("FRANK OCEAN: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(frankocean)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 200
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         frankocean.health = 200
         player.abilityuse = 1
         frankocean.abilityuse = 1
@@ -2402,6 +2545,11 @@ elif player.location == "L.A.":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "TEXAS":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2420,7 +2568,11 @@ elif player.location == "TEXAS":
     print(f"TAY-K: {tayk.phrase}")
     time.sleep(2)
     artist.fight(tayk)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 200
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     tayk.health = 200
     player.abilityuse = 1
     tayk.abilityuse = 1
@@ -2433,7 +2585,11 @@ elif player.location == "TEXAS":
         print("TAY-K: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(tayk)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 200
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         tayk.health = 200
         player.abilityuse = 1
         tayk.abilityuse = 1
@@ -2496,6 +2652,7 @@ print("BIG SMOKE: BE PREPARED IN CASE ONE OF THEM TRY TO FIGHT YOU, THEY'RE PRET
 time.sleep(2)
 print("")
 print("BIG SMOKE: JUST IN CASE, YOU SHOULD PICK A NEW ABILITY")
+time.sleep(2)
 print("")
 print("BIG SMOKE: YOU HAVE SOME OPTIONS")
 time.sleep(2)
@@ -2534,8 +2691,16 @@ print("\033[H\033[J")
 print("")
 print("THIS SATURDAY")
 time.sleep(4)
+print("\033[H\033[J")
+print("")
+time.sleep(2)
 
 if player.location == "ATLANTA":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2554,7 +2719,11 @@ if player.location == "ATLANTA":
     print(f"CARTI: {playboicarti.phrase}")
     time.sleep(2)
     artist.fight(playboicarti)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 300
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     playboicarti.health = 300
     player.abilityuse = 1
     playboicarti.abilityuse = 1
@@ -2567,7 +2736,11 @@ if player.location == "ATLANTA":
         print("CARTI: AYE SLATT, RUN ME THAT FADE ONE MORE TIME.")
         time.sleep(2)
         artist.fight(playboicarti)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 300
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         playboicarti.health = 300
         player.abilityuse = 1
         playboicarti.abilityuse = 1
@@ -2604,6 +2777,11 @@ if player.location == "ATLANTA":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "FLORIDA":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2622,7 +2800,11 @@ elif player.location == "FLORIDA":
     print(f"X: {xxxtentacion.phrase}")
     time.sleep(2)
     artist.fight(xxxtentacion)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 300
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     xxxtentacion.health = 300
     player.abilityuse = 1
     xxxtentacion.abilityuse = 1
@@ -2635,7 +2817,11 @@ elif player.location == "FLORIDA":
         print("X: I LOVE IT WHEN THEY RUN, BUT YOU CAN'T RUN THIS TIME")
         time.sleep(2)
         artist.fight(xxxtentacion)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 300
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         xxxtentacion.health = 300
         player.abilityuse = 1
         xxxtentacion.abilityuse = 1
@@ -2672,6 +2858,11 @@ elif player.location == "FLORIDA":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "NEW YORK":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2690,7 +2881,11 @@ elif player.location == "NEW YORK":
     print(f"ROCKY: {asaprocky.phrase}")
     time.sleep(2)
     artist.fight(asaprocky)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 300
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     asaprocky.health = 300
     player.abilityuse = 1
     asaprocky.abilityuse = 1
@@ -2703,7 +2898,11 @@ elif player.location == "NEW YORK":
         print("ROCKY: WE DEADA** GOTTA SHOOT THE FADE AGAIN, B.")
         time.sleep(2)
         artist.fight(asaprocky)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 300
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         asaprocky.health = 300
         player.abilityuse = 1
         asaprocky.abilityuse = 1
@@ -2740,6 +2939,11 @@ elif player.location == "NEW YORK":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "CHICAGO":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2758,7 +2962,11 @@ elif player.location == "CHICAGO":
     print(f"KANYE: {kanyewest.phrase}")
     time.sleep(2)
     artist.fight(kanyewest)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 300
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     kanyewest.health = 300
     player.abilityuse = 1
     kanyewest.abilityuse = 1
@@ -2771,7 +2979,11 @@ elif player.location == "CHICAGO":
         print("KANYE: THE MEDIA THINKS IM CRAZY, BUT WOULD A CRAZY PERSON KEEP FIGHTING YOU EVEN THOUGH YOU'RE CLEARLY OUTMATCHED?")
         time.sleep(2)
         artist.fight(kanyewest)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 300
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         kanyewest.health = 300
         player.abilityuse = 1
         kanyewest.abilityuse = 1
@@ -2808,6 +3020,11 @@ elif player.location == "CHICAGO":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "L.A.":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2826,7 +3043,11 @@ elif player.location == "L.A.":
     print(f"KENDRICK: {kendricklamar.phrase}")
     time.sleep(2)
     artist.fight(kendricklamar)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 300
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     kendricklamar.health = 300
     player.abilityuse = 1
     kendricklamar.abilityuse = 1
@@ -2839,7 +3060,11 @@ elif player.location == "L.A.":
         print("KENDRICK: WE NEED TO STOP THIS VIOLENCE WITHIN THE RAP COMMUNITY, BUT RIGHT NOW I HAVE TO FIGHT YOU AGAIN.")
         time.sleep(2)
         artist.fight(kendricklamar)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 300
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         kendricklamar.health = 300
         player.abilityuse = 1
         kendricklamar.abilityuse = 1
@@ -2876,6 +3101,11 @@ elif player.location == "L.A.":
         player.abilityuse = 1
         print("\033[H\033[J")
 elif player.location == "TEXAS":
+    playerattack = player.attack
+    playerdefense = player.defense
+    playerhealth = player.health
+    playerlyrics = player.lyrics
+    playercatchiness = player.catchiness
     print("!!!: HEY!")
     time.sleep(2)
     print("")
@@ -2894,7 +3124,11 @@ elif player.location == "TEXAS":
     print(f"TRAV: {travisscott.phrase}")
     time.sleep(2)
     artist.fight(travisscott)
+    player.attack = playerattack
+    player.defense = playerdefense
     player.health = 300
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
     travisscott.health = 300
     player.abilityuse = 1
     travisscott.abilityuse = 1
@@ -2907,7 +3141,11 @@ elif player.location == "TEXAS":
         print("TRAV: THIS AINT MY FIRST RODEO, BUT IM GONNA KNOCK YOU ALL THE WAY TO ASTROWORLD")
         time.sleep(2)
         artist.fight(travisscott)
+        player.attack = playerattack
+        player.defense = playerdefense
         player.health = 300
+        player.lyrics = playerlyrics
+        player.catchiness = playercatchiness
         travisscott.health = 300
         player.abilityuse = 1
         travisscott.abilityuse = 1
@@ -2943,3 +3181,106 @@ elif player.location == "TEXAS":
         player.flow = "TRAV'S"
         player.abilityuse = 1
         print("\033[H\033[J")
+print("")
+print("BIG SMOKE: WOAH!")
+time.sleep(2)
+print("")
+print("BIG SMOKE: I HAD NO IDEA YOU WERE THIS GOOD KID!")
+time.sleep(2)
+print("")
+print("BIG SMOKE: YOU'RE A BONAFIDE STAR!")
+time.sleep(2)
+print("")
+print("BIG SMOKE: I HAVE SOMETHING TO G-")
+time.sleep(2)
+print("")
+print("BIG SMOKE: ...")
+time.sleep(2)
+print("")
+print("BIG SMOKE: ...")
+time.sleep(2)
+print("")
+print("BIG SMOKE: WHAT'S THAT?")
+time.sleep(2)
+print("")
+print("!!!: BAD TING YA KNO...")
+time.sleep(2)
+print("")
+print("!!!: INNA 6 WE NO LIKE YA KIND DAWG EH?")
+time.sleep(2)
+print("")
+print("!!!: ME NAME DRAKE AND ME WANT YA STYLE MON")
+time.sleep(2)
+player.health = 400
+playerattack = player.attack
+playerdefense = player.defense
+playerhealth = player.health
+playerlyrics = player.lyrics
+playercatchiness = player.catchiness
+drake.abilityuse = 2
+print("")
+print(f"DRAKE: {drake.phrase}")
+time.sleep(2)
+artist.fight(drake)
+player.attack = playerattack
+player.defense = playerdefense
+player.health = 400
+player.lyrics = playerlyrics
+player.catchiness = playercatchiness
+drake.health = 400
+player.abilityuse = 1
+drake.abilityuse = 1
+drake.attack = 100
+drake.defense = 0.5
+drake.catchiness = 0.5
+drake.lyrics = 0.5
+print("\033[H\033[J")
+while playerwin is False:
+    print("DRAKE: YA NO GET AWAY THAT EASY TING EH?")
+    time.sleep(2)
+    artist.fight(drake)
+    player.attack = playerattack
+    player.defense = playerdefense
+    player.health = 400
+    player.lyrics = playerlyrics
+    player.catchiness = playercatchiness
+    drake.health = 400
+    player.abilityuse = 1
+    drake.abilityuse = 1
+    drake.attack = 100
+    drake.defense = 0.5
+    drake.catchiness = 0.5
+    drake.lyrics = 0.5
+    print("\033[H\033[J")
+if playerwin is True:
+    print("")
+    print(f"BIG SMOKE: {player.name}...")
+    time.sleep(2)
+    print("")
+    print("BIG SMOKE: YOU JUST DEFEATED DRAKE, THE BIGGEST STAR IN THE WORLD")
+    time.sleep(2)
+    print("")
+    print("BIG SMOKE: YOU ARE NOW THE MOST POPULAR ARTIST IN THE WORLD, AND CREATED YOUR OWN WAVE")
+    time.sleep(3)
+    print("")
+    print("BIG SMOKE: I'VE NEVER BEEN MORE PROUD THAN THIS MOMENT RIGHT NOW")
+    time.sleep(2)
+    print("")
+    print("BIG SMOKE: I SAW YOU COME UP FROM THE STREETS, AND NOW YOU'RE ON TOP OF THE WORLD!")
+    time.sleep(2)
+    print("")
+    print("BIG SMOKE: I THINK ITS TIME TO RETIRE AT THE TOP BEFORE YOU BECOME IRRELEVANT AND OLD")
+    time.sleep(2)
+    print("")
+    print("BIG SMOKE: THANK YOU FOR EVERYTHING AND I WISH YOU LUCK FOR THE REST OF YOUR LIFE")
+    time.sleep(2)
+    print("")
+    print("BIG SMOKE: THANK YOU...")
+    time.sleep(2)
+    print("")
+    print("A SINGLE TEAR DROPS FROM HIS FACE")
+    time.sleep(4)
+    print("")
+    print("T H E   E N D")
+    time.sleep(4)
+    print("\033[H\033[J")
