@@ -99,22 +99,28 @@ class artist:
 
 
 	def fight(opponent):
+	    """creates fight between the player and an opponent"""
 		global playerwin
 		playerwin = False
 		asapmobactive = False
+		
+		### I WROTE THESE ABILITIES IN AT THE BEGINNING (SLAUGHTER GANG AND SLIME FAMILY) AND I DIDNT WANT THEM BUT IM TOO SCARED TO DELETE THEM FOR SOME REASON BUT THEY'RE NOT BEING USED SO I THOUGHT IT WAS HARMLESS TO KEEP THEM ###
 		slaughtergangactive = False
 		slimefamilyactive = False
 		asapmobactive2 = False
 		slaughtergangactive2 = False
 		slimefamilyactive2 = False
 		opponentattack = False
+		
+		### converts attributes into displayable stats ###
 		catchinessdisplay = round(player.catchiness*100*2)
 		lyricsdisplay = round(player.lyrics*100)
 		defensedisplay = round((1-player.defense)*2*100)
 		catchinessdisplay2 = round(opponent.catchiness*100*2)
 		lyricsdisplay2 = round(opponent.lyrics*100)
 		defensedisplay2 = round((1-opponent.defense)*2*100)
-
+		
+        ### if both of the players healths are greater than 0, asks user what to do next ###
 		while player.health > 0 and opponent.health > 0:
 			print("\033[H\033[J")
 			print(f"""{player.name.upper()}		{opponent.name}
@@ -138,13 +144,12 @@ SPECIAL ABILITY
 
 
 
-
+            ### if user inputs check stats, displays info for both fighters ###
 			if action == "CHECK STATS":
 				print("\033[H\033[J")
 				time.sleep(2)
 				artist.listinfo(opponent)
 				print("")
-				time.sleep(1)
 				artist.listinfo(player)
 				print("")
 				time.sleep(2)
@@ -155,8 +160,10 @@ SPECIAL ABILITY
 
 
 
-
+            ### if user inputs attack ###
 			if action == "ATTACK":
+			    
+			    ### 50% chance of either player going first ###
 				chance = random.randint(0, 9)
 				if chance >= 5:
 					playerspeed = 1
@@ -168,21 +175,33 @@ SPECIAL ABILITY
 					print("")
 					print(f"YOU ARE FASTER!")
 					time.sleep(2)
+					
+					### generates random number from 1-100 for use in lyrics stat ###
 					randomlyrics = random.randint(0, 100)
+					
+					### calculates damage to opponent ###
 					playerdamage = player.attack*opponent.defense
+					
+					### if random number is greater than chance of crit (lyrics stat), crit is not achieved ###
 					if randomlyrics >= lyricsdisplay:
 						playerdamage = playerdamage * 1.5
 						impacthit = True
 					else:
 						impacthit = False
+						
+				    ### if random number is greater than opponent's chance of evasion (catchiness stat), evasion is not achieved ###
 					randomcatchiness = random.randint(0, 1000)
 					if randomcatchiness <= catchinessdisplay2:
 						playerdamage = 0
 						miss = True
 					else:
 						miss = False
+					
+					### if asap mob ability is in use, adds 60 damage to next attack ### 
 					if asapmobactive is True:
 						playerdamage = playerdamage + 60
+					
+					### deleted abilities ###
 					if slaughtergangactive is True:
 						playerdamage = playerdamage + 20
 					if slimefamilyactive is True:
@@ -197,6 +216,8 @@ SPECIAL ABILITY
 					if asapmobactive is True:
 						asapmobactive = False
 						player.abilityuse = player.abilityuse - 1
+					
+					### if opponent did not evade, and critical hit was achieved, prints out the following and how much damage was done ###
 					if miss is False:
 						if impacthit is True:
 							print("")
@@ -205,11 +226,14 @@ SPECIAL ABILITY
 						print("")
 						print(f"YOU ATTACKED {opponent.name} FOR {playerdamage} HEALTH!")
 						time.sleep(2)
+						
+					### if opponent did evade, prints out the following ###
 					elif miss is True:
 						print("")
 						print(f"YOU MISSED YOUR ATTACK!")
 						time.sleep(2)
-
+						
+                    ### if opponent is dead after attack, reprints both players stats (with opponent health at 0), says they've been defeated, resets both health stats to 100, and sets playerwin to true ###
 					if opponent.health <= 0:
 						print("\033[H\033[J")
 						print(f"""{player.name.upper()}	    {opponent.name}
@@ -225,6 +249,8 @@ HEALTH: {player.health}		HEALTH: 0
 						opponent.health = 100
 						playerwin = True
 						break
+					
+					### if player is dead after attack, reprints both players stats (with player health at 0), says you've been defeated, resets both health stats to 100, and sets playerwin to false ###
 					elif player.health <= 0:
 						print("\033[H\033[J")
 						print(f"""{player.name.upper()}	    {opponent.name}
@@ -239,7 +265,8 @@ HEALTH: 0		HEALTH: {opponent.health}
 						opponent.health = 100
 						playerwin = False
 						break
-
+                    
+                    ### if both players are still alive, now it is opponents turn to attack, using the same lyrics and catchiness procedures as for the player with one addition being the 50% chance to activate their special ability ###
 					print("")
 					print(f"{opponent.name}'S TURN!")
 					randomchoice = random.randint(0,100)
@@ -293,7 +320,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 							print("")
 							print(f"HE MISSED HIS ATTACK!")
 							time.sleep(2)
-
+                    ### if 50% chance to activate special ability is true, then series of if/elif statements about what to do if certain abilities are active and what stats to change, always lowering abilityuse by 1 so it can only be used once, and then going through the attack protocol after ###
 					elif opponentspecialability is True:
 						if opponent.ability == "DISAPPEAR":
 							print("")
@@ -534,7 +561,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 
 
 
-
+                ### this basically is the attacking if the opponent goes first, so its the same exact code, just in reverse order ###
 				else:
 					print("")
 					print(f"{opponent.name} IS FASTER!")
@@ -936,6 +963,11 @@ HEALTH: 0		HEALTH: {opponent.health}
 					playerwin = False
 					break
 
+
+
+
+
+            ### if user inputs special ability, goes through a series of if/elif statements that change certain stats depedning on what ability the user has ###
 			if action == "SPECIAL ABILITY":
 				time.sleep(2)
 				if player.abilityuse == 0:
@@ -1121,7 +1153,7 @@ HEALTH: 0		HEALTH: {opponent.health}
 
 
 
-
+### list of all of the artists and their stats ###
 frankocean = artist("FRANK OCEAN", "L.A.", "PURE RNB", 0.4, 0.8, "FRANK'S", 65, 25, "DISAPPEAR", "FRANK DISAPPEARS FOR 2 YEARS, DOUBLING ATTACK AND LYRICS", 1, "I WON'T DROP THE ALBUM", "NIGHTS", "BLONDE", 7, 50, 0.4, 200)
 
 kendricklamar = artist("KENDRICK LAMAR", "L.A.", "PURE RAP", 0.35, 0.9, "KENDRICK'S", 75, 1, "QUICK SPEED", "KENDRICK RAPS AT FULL SPEED, DOUBLING ATTACK AND LYRICS", 1,"KUNG-FU KENNY!", "POETIC JUSTICE", "TO PIMP A BUTTERFLY", 9, 70, 0.5, 300)
@@ -1183,7 +1215,7 @@ player = artist("name", "location", "genre", 0, 0, "???", 0, "???", "???", "???"
 
 
 
-
+### i actually dont think i use this, but again im too scared to delete it just in case, but this was supposed to display stats ###
 def displaystats():
 	catchinessdisplay = round(player.catchiness*100*2)
 	lyricsdisplay = round(player.lyrics*100)
@@ -1227,7 +1259,7 @@ RANKING: {player.rating}
 
 
 
-
+### text introductions and getting info for name and city etc. ###
 print("\033[H\033[J")
 print("*TYPE IN ALL CAPS OKAY THANKS*")
 time.sleep(2)
@@ -1299,6 +1331,8 @@ while player.kind != "PURE MELODIC" and player.kind != "MIXED MELODIC" and playe
 	time.sleep(1)
 time.sleep(2)
 print("")
+
+### giving different stats to different builds that were seelcted previously ###
 if player.kind == "PURE MELODIC":
 	print("+50 CATCHINESS")
 	player.catchiness = 0.25
@@ -1419,6 +1453,7 @@ elif player.kind == "MIXED RNB":
 	print("+4 RANKING")
 	time.sleep(2)
 
+### more text info ###
 print("\033[H\033[J")
 time.sleep(2)
 artist.listinfo(player)
@@ -1553,7 +1588,11 @@ time.sleep(2)
 print("\033[H\033[J")
 time.sleep(2)
 
+
+### fighting different artists based on what city you chose ###
+### every location is the same exact code except for the switching of who you fight, so im only putting comments on the first one, so everything between if player.location == "atlanta" and elif player.location == "florida"
 if player.location == "ATLANTA":
+    ### makes variables set to whatever the attribute was before any changes in the actual fight, so i can reset the player's stats after so it doesnt roll over into future fights ###
     playerattack = player.attack
     playerdefense = player.defense
     playerhealth = player.health
@@ -1573,7 +1612,11 @@ if player.location == "ATLANTA":
     print("")
     print(f"PIERRE: {pierrebourne.phrase}")
     time.sleep(2)
+    
+    ### makes player fight opponent ###
     artist.fight(pierrebourne)
+    
+    ### resetting stats using variables from before ###
     player.attack = playerattack
     player.defense = playerdefense
     player.health = 100
@@ -1587,10 +1630,14 @@ if player.location == "ATLANTA":
     pierrebourne.catchiness = 0.25
     pierrebourne.lyrics = 0.4
     print("\033[H\033[J")
+    
+    ### if the player lost, they keep fighting until they win ###
     while playerwin is False:
         print("PIERRE: YOU'RE NOT GONNA GET OFF THAT EASILY.")
         time.sleep(2)
         artist.fight(pierrebourne)
+        
+        ### resetting stats using variables from before ###
         player.attack = playerattack
         player.defense = playerdefense
         player.health = 100
@@ -1605,6 +1652,8 @@ if player.location == "ATLANTA":
         pierrebourne.lyrics = 0.4
         print("\033[H\033[J")
     if playerwin is True:
+        
+        ### giving stat boosts if you win! ###
         print("+20 CATCHINESS")
         player.catchiness = player.catchiness + 0.20
         time.sleep(0.5)
@@ -2038,6 +2087,8 @@ elif player.location == "TEXAS":
         player.abilityuse = 1
         print("\033[H\033[J")
 
+
+### more text exposition ###
 print("BIG SMOKE: WOAH WOAH WOAH! WHAT HAPPENED HERE?")
 time.sleep(2)
 print("")
@@ -2139,6 +2190,7 @@ time.sleep(4)
 print("\033[H\033[J")
 time.sleep(2)
 
+### more of the exact same stuff as before ###
 if player.location == "ATLANTA":
     playerattack = player.attack
     playerdefense = player.defense
@@ -2626,6 +2678,7 @@ elif player.location == "TEXAS":
         player.abilityuse = 1
         print("\033[H\033[J")
 
+### more textposition ###
 print("")
 print("BIG SMOKE: WOAH!")
 time.sleep(2)
@@ -2695,6 +2748,7 @@ print("\033[H\033[J")
 print("")
 time.sleep(2)
 
+### you know the drill by now ###
 if player.location == "ATLANTA":
     playerattack = player.attack
     playerdefense = player.defense
@@ -3181,6 +3235,8 @@ elif player.location == "TEXAS":
         player.flow = "TRAV'S"
         player.abilityuse = 1
         print("\033[H\033[J")
+
+### more texpositional information ###
 print("")
 print("BIG SMOKE: WOAH!")
 time.sleep(2)
@@ -3210,6 +3266,8 @@ print("!!!: INNA 6 WE NO LIKE YA KIND DAWG EH?")
 time.sleep(2)
 print("")
 print("!!!: ME NAME DRAKE AND ME WANT YA STYLE MON")
+
+### same as the fight stuff from before ###
 time.sleep(2)
 player.health = 400
 playerattack = player.attack
@@ -3253,6 +3311,8 @@ while playerwin is False:
     drake.lyrics = 0.5
     print("\033[H\033[J")
 if playerwin is True:
+    
+    ### final dislpaying of texpositional information ###
     print("")
     print(f"BIG SMOKE: {player.name}...")
     time.sleep(2)
