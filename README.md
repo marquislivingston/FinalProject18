@@ -1,9 +1,3 @@
-# Intro to Programming Final Project - Fall 2018
+# My Game "MUSIC STAR 2: TOKYO DRIFT"
 
-* Project details are in description.md
-* Replace the content of this file with your own info about your project before the due date
-* Don't forget to fill out the [Project Proposal Form](https://airtable.com/shrrdA41unoBvi6Ki) before break.
-
-## Setting Up Your Repo
-
-On the GitHub page for this repository, click the "Fork" button. This will create your own copy of this repository, linked to my original. Use the same cloning method we used before to clone the repository to your PythonAnywhere account
+In this game, you star as a young artist just trying to make their mark in their city with the help of your manager Big Smoke... but other artists don't want you to succeed. You're gonna have to fight your way to the top, if you want to be the #1 music star in the world! Use different abilities and character builds to try to maximize your winning strategy, and once you enter a fight... you can't leave! All in your quest to be the #1 music star in the world!
